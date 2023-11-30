@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Book from './Components/Book';
 
-function App() {
+const App = () => {
+  const books = [
+    { title: 'React Up and Running', author: 'Stoyan Stefanov', publishedYear: 2019 },
+    { title: 'JavaScript: The Good Parts', author: 'Douglas Crockford', publishedYear: 2008 },
+    { title: 'Eloquent JavaScript', author: 'Marijn Haverbeke', publishedYear: 2011 },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Book List</h1>
+      {books.map((book, index) => (
+        <Book
+          key={index}
+          title={book.title}
+          author={book.author}
+          publishedYear={book.publishedYear}
+        />
+      ))}
     </div>
   );
-}
+};
 
 export default App;
